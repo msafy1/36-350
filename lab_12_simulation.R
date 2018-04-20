@@ -29,3 +29,14 @@ run_simulation(n=10000, p=20)
 run_simulation(n=100, p=50)
 run_simulation(n=1000, p=50)
 run_simulation(n=10000, p=50)
+
+run_simulation = function(n_trials, n, p, cutoff){
+  data = generate_data(n, p)
+  mod = model_select(data[[0]]~data[[1]])
+  sum = summary(mod)
+  return(sum[,4])
+}
+
+make_plot = function(datapath){
+    hist(datapath)
+  }
